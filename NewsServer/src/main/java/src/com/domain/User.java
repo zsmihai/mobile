@@ -23,7 +23,6 @@ public class User implements Serializable {
     private String name;
 
     @NotNull
-    @Email(message = "Invalid email format.")
     @Column(name = "email")
     private String email;
 

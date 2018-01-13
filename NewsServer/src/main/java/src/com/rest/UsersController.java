@@ -19,7 +19,6 @@ import java.util.Date;
 import java.util.List;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:9955")
 public class UsersController {
     private final UsersService usersService;
     private final NewsService newsService;
@@ -28,6 +27,12 @@ public class UsersController {
     public UsersController(UsersService usersService, NewsService newsService) {
         this.usersService = usersService;
         this.newsService = newsService;
+    }
+
+    @RequestMapping(value = "/data", method = RequestMethod.GET)
+    public String stuff()
+    {
+        return "Success";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
