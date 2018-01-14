@@ -133,8 +133,8 @@ public class LoginActivity extends AppCompatActivity{
 
         this.realm.executeTransaction(realm -> realm.where(User.class).findAll().deleteAllFromRealm());
         this.realm.executeTransactionAsync(realm -> realm.copyToRealmOrUpdate(user));
-
-        startActivity(new Intent(this, LoginActivity.class));
+        Log.d(TAG, "Begin start main activity");
+        startActivity(new Intent(this, MainActivityMain.class));
     }
 
     private void handleSignUpSuccessful(TokenDTO tokenDTO) {
@@ -158,7 +158,7 @@ public class LoginActivity extends AppCompatActivity{
             toast.show();
         }  else{
             Log.d(TAG, "Starting offline");
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, MainActivityMain.class));
         }
 
     }
