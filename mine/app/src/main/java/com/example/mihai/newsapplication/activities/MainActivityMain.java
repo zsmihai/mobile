@@ -1,5 +1,6 @@
 package com.example.mihai.newsapplication.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -62,5 +63,7 @@ public class MainActivityMain extends AppCompatActivity {
     }
 
     public void handleAllNewsBtn(View view) {
+        Log.d(TAG, "All news button handler");
+        startActivity(new Intent(this, NewsListActivity.class));
     }
 }

@@ -85,4 +85,9 @@ public class NewsObject implements Serializable{
     public void setPublishDate(Date publishDate) {
         this.publishDate = publishDate;
     }
+
+    @Override
+    public String toString() {
+        return author + " " + publishDate + ": " + text.substring(0, 32);
+    }
 }

@@ -5,10 +5,14 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import src.com.domain.NewsObject;
 import src.com.rest.responses.ErrorResponse;
 import src.com.rest.responses.Response;
 import src.com.rest.responses.SuccessResponse;
 import src.com.services.NewsService;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class NewsController {
@@ -21,14 +25,14 @@ public class NewsController {
     }
 
     @RequestMapping(value = "/news", method = RequestMethod.GET)
-    public Response getAllNews()
+    public List<NewsObject> getAllNews()
     {
         try{
-            return new SuccessResponse(newsService.getAllNews());
+            return newsService.getAllNews();
         }
         catch (Exception e)
         {
-            return new ErrorResponse(-1, e.getMessage());
+            return new ArrayList<>();
         }
     }
 
