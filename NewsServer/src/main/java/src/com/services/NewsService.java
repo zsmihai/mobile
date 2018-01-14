@@ -8,6 +8,7 @@ import src.com.persistence.NewsRepository;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -17,5 +18,15 @@ public class NewsService {
     @Autowired
     public NewsService(NewsRepository repository) {
         this.repository = repository;
+    }
+
+    public List<NewsObject> getAllNews()
+    {
+        return repository.findAll();
+    }
+
+    public NewsObject getById(Integer id)
+    {
+        return repository.findOne(id);
     }
 }

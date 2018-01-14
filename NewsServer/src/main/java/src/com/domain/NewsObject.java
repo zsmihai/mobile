@@ -3,6 +3,7 @@ package src.com.domain;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import java.util.Set;
@@ -10,7 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "newsobject")
-public class NewsObject{
+public class NewsObject implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
