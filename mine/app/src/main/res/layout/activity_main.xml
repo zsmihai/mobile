@@ -19,7 +19,7 @@
             android:id="@+id/news_button_id"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="@string/username"
+            android:text="@string/News"
             android:clickable="true"
             android:focusable="true"
             android:onClick="handleAllNewsBtn"
@@ -27,12 +27,19 @@
 
         <Button
             android:id="@+id/write_button_id"
-            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            android:text="@string/password"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
             android:onClick="handleWriteNewsBtn"
-            />
+            android:text="@string/Submit" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="sendSupportMail"
+            android:text="@string/support" />
     </LinearLayout>
 </LinearLayout>

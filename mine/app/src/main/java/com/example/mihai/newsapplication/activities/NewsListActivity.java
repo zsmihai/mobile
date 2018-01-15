@@ -1,6 +1,7 @@
 package com.example.mihai.newsapplication.activities;
 
 import android.content.Intent;
+import android.opengl.Visibility;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ListView;
@@ -77,17 +79,6 @@ public class NewsListActivity extends AppCompatActivity{
 
         getNewsFromRemote();
 
-        Log.d(TAG,user.getUsername());
-
-/*
-        listView.setOnItemClickListener((adapterView, view, i, l) -> {
-            Book book = (Book) adapterView.getItemAtPosition(i);
-
-            Intent intent = new Intent(this, SingleBookActivity.class);
-            intent.putExtra("bookId", book.getId());
-            startActivity(intent);
-        });
-*/
 
         Log.d(TAG, "The onCreate() event");
     }
@@ -113,6 +104,13 @@ public class NewsListActivity extends AppCompatActivity{
 
     private void handleErrorGetNewsFromRemote(Throwable throwable) {
         Log.d(TAG, "Enter handleGetNewsFromRemote error");
+        localNewsList.clear();
+        realm.executeTransaction(realm->
+        {
+            localNewsList.addAll(realm.where(NewsObject.class).findAll());
+        });
+        populateListView(localNewsList);
+        buildChart();
     }
 
     private void handleGetNewsFromRemote(Collection<NewsDTO> newsDTOS) {
@@ -153,6 +151,13 @@ public class NewsListActivity extends AppCompatActivity{
 
     private void buildChart()
     {
+
+        View barchartView = findViewById(R.id.barchartview);
+        barchartView.setVisibility(View.GONE);
+
+        barchartView.setAlpha(0f);
+        barchartView.setVisibility(View.VISIBLE);
+
         Map<String, Integer> labelCounter = new HashMap<>();
 
         for (NewsObject newsObject : localNewsList)
@@ -184,5 +189,10 @@ public class NewsListActivity extends AppCompatActivity{
         barChart.setData(data);
 
         barChart.invalidate(); // refresh
+
+        barchartView.animate()
+                .alpha(1f)
+                .setDuration(10000)
+                .setListener(null);
     }
 }

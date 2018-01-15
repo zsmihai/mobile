@@ -24,4 +24,8 @@
     <string name="text">Text</string>
     <string name="submit">Submit</string>
 
+    <string name="News">News</string>
+    <string name="Submit">Submit an article</string>
+    <string name="support">Report a bug</string>
+
 </resources>

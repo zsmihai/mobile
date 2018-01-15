@@ -15,7 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/authorNameFilterTextView"
             android:layout_marginTop="20dp"
             android:padding="10dp"
             android:paddingBottom="10dp"
@@ -25,14 +24,30 @@
             android:paddingStart="10dp"
             android:paddingTop="10dp" />
 
-        <com.github.mikephil.charting.charts.BarChart
-            android:id="@+id/barchart"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_below="@+id/newsListView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="39dp" />
 
 
+
+    <HorizontalScrollView
+        android:id="@+id/barchartview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="62dp"
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_below="@+id/newsListView"
+        >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barchart"
+                android:layout_width="385dp"
+                android:layout_height="match_parent"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="39dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
