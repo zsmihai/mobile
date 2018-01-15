@@ -19,4 +19,9 @@
         completions."
     </string>
     <string name="server_url">http://10.0.2.2:8080/</string>
+
+    <string name="labels">Labels</string>
+    <string name="text">Text</string>
+    <string name="submit">Submit</string>
+
 </resources>

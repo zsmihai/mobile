@@ -8,24 +8,18 @@ import com.google.gson.annotations.SerializedName;
 
 public class LabelDTO {
 
-    @SerializedName("id")
-    private Integer id;
 
     @SerializedName("label")
     private String label;
 
-    public LabelDTO(Integer id, String label) {
-        this.id = id;
+    public LabelDTO(String label) {
         this.label = label;
     }
 
-    public Integer getId() {
-        return id;
-    }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+
+
+
 
     public String getLabel() {
         return label;

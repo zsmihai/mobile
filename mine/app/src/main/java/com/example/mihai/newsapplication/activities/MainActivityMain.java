@@ -60,6 +60,8 @@ public class MainActivityMain extends AppCompatActivity {
     }
 
     public void handleWriteNewsBtn(View view) {
+        Log.d(TAG, "All news button handler");
+        startActivity(new Intent(this, AddNewsActivity.class));
     }
 
     public void handleAllNewsBtn(View view) {

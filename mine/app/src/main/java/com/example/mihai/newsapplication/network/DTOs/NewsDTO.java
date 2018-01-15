@@ -3,6 +3,7 @@ package com.example.mihai.newsapplication.network.DTOs;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -35,6 +36,14 @@ public class NewsDTO {
     }
 
     public NewsDTO() {
+    }
+
+    public NewsDTO(String author, String text, Date publishDate) {
+        this.author = author;
+        this.text = text;
+        this.publishDate = publishDate;
+        this.labels = new HashSet<>();
+        this.id = null;
     }
 
     public Integer getId() {

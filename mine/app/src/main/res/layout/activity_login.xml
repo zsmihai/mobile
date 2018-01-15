@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/passwordTextView"
+            android:id="@+id/textextview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/passwordTextField"
@@ -30,9 +30,9 @@
             android:id="@+id/usernameTextField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@+id/textextview"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="33dp"
+            android:layout_marginBottom="32dp"
             android:ems="10"
             android:inputType="textPersonName" />
 
@@ -40,9 +40,9 @@
             android:id="@+id/passwordTextField"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/usernameTextField"
-            android:layout_below="@+id/usernameTextField"
-            android:layout_marginTop="49dp"
+            android:layout_above="@+id/signupButton"
+            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="22dp"
             android:ems="10"
             android:inputType="textPassword" />
 
@@ -69,8 +69,9 @@
             android:id="@+id/usernameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/passwordTextField"
-            android:layout_alignStart="@+id/passwordTextView"
+            android:layout_alignBaseline="@+id/usernameTextField"
+            android:layout_alignBottom="@+id/usernameTextField"
+            android:layout_alignStart="@+id/textextview"
             android:text="@string/username"
             android:textSize="24sp" />
 

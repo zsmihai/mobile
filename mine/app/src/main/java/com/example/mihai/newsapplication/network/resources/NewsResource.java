@@ -5,7 +5,9 @@ import com.example.mihai.newsapplication.network.DTOs.NewsDTO;
 import java.util.Collection;
 
 import io.reactivex.Observable;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 /**
@@ -19,4 +21,7 @@ public interface NewsResource {
 
     @GET("/news/{news_id}")
     Observable<NewsDTO> getById(@Path("news_id") Integer id);
+
+    @POST("/news")
+    Observable<NewsDTO> addNews(@Body NewsDTO book);
 }

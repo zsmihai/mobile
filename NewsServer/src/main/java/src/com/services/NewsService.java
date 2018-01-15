@@ -29,4 +29,11 @@ public class NewsService {
     {
         return repository.findOne(id);
     }
+
+    public NewsObject add(NewsDTO newsDTO)
+    {
+        NewsObject newsObject = new NewsObject(newsDTO.getAuthor(), newsDTO.getText(), newsDTO.getPublishDate());
+        newsObject.setLabels(newsDTO.getLabels());
+        return repository.save(newsObject);
+    }
 }

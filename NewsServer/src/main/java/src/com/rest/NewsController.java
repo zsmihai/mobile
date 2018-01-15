@@ -1,17 +1,16 @@
 package src.com.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import src.com.domain.NewsObject;
 import src.com.rest.responses.ErrorResponse;
 import src.com.rest.responses.Response;
 import src.com.rest.responses.SuccessResponse;
+import src.com.services.NewsDTO;
 import src.com.services.NewsService;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -45,6 +44,17 @@ public class NewsController {
         catch (Exception e)
         {
             return new ErrorResponse(-2, e.getMessage());
+        }
+    }
+
+    @RequestMapping(value = "/news", method = RequestMethod.POST)
+    public NewsObject addNews(@RequestBody NewsDTO newsDTO)
+    {
+        try{
+            return this.newsService.add(newsDTO);
+        }
+        catch (Exception e) {
+            return new NewsObject("", "", new Date());
         }
     }
 }

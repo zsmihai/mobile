@@ -11,25 +11,14 @@ import io.realm.annotations.Required;
 public class Label extends RealmObject{
 
     @PrimaryKey
-    private Integer id;
-
-    @Required
     private String label;
 
-    public Label(Integer id, String label) {
-        this.id = id;
+    public Label( String label) {
+
         this.label = label;
     }
 
     public Label() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getLabel() {
